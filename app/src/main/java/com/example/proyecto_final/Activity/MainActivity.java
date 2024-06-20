@@ -11,8 +11,11 @@ import androidx.viewpager2.widget.CompositePageTransformer;
 import androidx.viewpager2.widget.MarginPageTransformer;
 
 import com.example.proyecto_final.Adapter.CategoryAdapter;
+import com.example.proyecto_final.Adapter.PopularAdapter;
+import com.example.proyecto_final.Adapter.RecommendedAdapter;
 import com.example.proyecto_final.Adapter.SliderAdapter;
 import com.example.proyecto_final.Domain.Category;
+import com.example.proyecto_final.Domain.ItemDomian;
 import com.example.proyecto_final.Domain.Location;
 import com.example.proyecto_final.Domain.SliderItems;
 import com.example.proyecto_final.R;
@@ -36,7 +39,66 @@ public class MainActivity extends BaseActivity {
         initLocation();
         initBanner();
         initCategory();
+        initRecommended();
+        initPopular();
 
+    }
+
+    private void initPopular() {
+        DatabaseReference myRef=database.getReference("Popular");
+        binding.progressBarPopular.setVisibility(View.VISIBLE);
+
+        ArrayList<ItemDomian> list=new ArrayList<>();
+
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    for (DataSnapshot issue:snapshot.getChildren()){
+                        list.add(issue.getValue(ItemDomian.class));
+                    }
+                    if (!list.isEmpty()){
+                        binding.recyclerViewPopular.setLayoutManager(new LinearLayoutManager(MainActivity.this,LinearLayoutManager.HORIZONTAL,false));
+                        RecyclerView.Adapter adapter=new PopularAdapter(list);
+                        binding.recyclerViewPopular.setAdapter(adapter);
+                    }
+                    binding.progressBarPopular.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+    private void initRecommended() {
+        DatabaseReference myRef=database.getReference("Item");
+        binding.progressBarRecommended.setVisibility(View.VISIBLE);
+
+        ArrayList<ItemDomian> list=new ArrayList<>();
+
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()){
+                    for (DataSnapshot issue:snapshot.getChildren()){
+                        list.add(issue.getValue(ItemDomian.class));
+                    }
+                    if (!list.isEmpty()){
+                        binding.recyclerViewRecommended.setLayoutManager(new LinearLayoutManager(MainActivity.this,LinearLayoutManager.HORIZONTAL,false));
+                        RecyclerView.Adapter adapter=new RecommendedAdapter(list);
+                        binding.recyclerViewRecommended.setAdapter(adapter);
+                    }
+                    binding.progressBarRecommended.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
 
     private void initCategory() {
