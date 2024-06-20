@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Proyecto_Final</string>
-    <string name="introTitle">Explorer the <font color='#3f95ec'>\n World</font> with us</string>
-    <string name="subIntro"> Lorem ipsum dolor sit ame, consectetur \n
-        adipiscing elit, sed do eiusmod tempor.</string>
+    <string name="introTitle">Explora el <font color='#3f95ec'>\n Mundo</font> con nosotros</string>
+    <string name="subIntro"> Disfruta de tu viaje  \n
+        como si fuera el ultimo que realizas.</string>
 </resources>

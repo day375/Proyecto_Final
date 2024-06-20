@@ -38,7 +38,7 @@
                     android:id="@+id/textView3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Location"
+                    android:text="Ubicación"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -69,7 +69,7 @@
                     android:drawableStart="@drawable/search_icon"
                     android:drawablePadding="8dp"
                     android:ems="10"
-                    android:hint="Street, Address, City..."
+                    android:hint="Dirección, Calle, Ciudad..."
                     android:inputType="text"
                     android:padding="8dp"
                     android:textColor="@color/darkBlue"
@@ -89,7 +89,7 @@
                     android:layout_marginBottom="2dp"
                     android:background="@drawable/blue_bg"
                     android:gravity="center"
-                    android:text="Search"
+                    android:text="Buscar"
                     android:textColor="@color/white"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -165,7 +165,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Redommend"
+                    android:text="Recomendaciones"
                     android:textColor="@color/darkBlue"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -174,7 +174,7 @@
                     android:id="@+id/textView6"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="See all"
+                    android:text="Ver todo"
                     android:textColor="@color/blue"
                     android:textSize="14sp" />
 
@@ -221,7 +221,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Popular Destination"
+                    android:text="Destinos Populares"
                     android:textColor="@color/darkBlue"
                     android:textSize="16sp"
                     android:textStyle="bold" />
@@ -230,7 +230,7 @@
                     android:id="@+id/textView8"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="See all"
+                    android:text="Ver todo"
                     android:textColor="@color/blue" />
 
             </LinearLayout>
