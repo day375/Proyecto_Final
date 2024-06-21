@@ -8,13 +8,15 @@
     tools:context=".Activity.DetailActivity">
 
     <ScrollView
+        android:id="@+id/scrollView3"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:paddingBottom="50dp"
+            android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -28,7 +30,7 @@
                     app:layout_constraintTop_toTopOf="parent">
 
                     <ImageView
-                        android:id="@+id/imageView2"
+                        android:id="@+id/pic"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:scaleType="centerCrop"
@@ -38,7 +40,7 @@
                         tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
                     <ImageView
-                        android:id="@+id/imageView7"
+                        android:id="@+id/backBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="24dp"
@@ -52,16 +54,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="24dp"
-                        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+                        app:layout_constraintBottom_toBottomOf="@+id/backBtn"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/imageView7"
+                        app:layout_constraintTop_toTopOf="@+id/backBtn"
                         app:srcCompat="@drawable/fav_icon" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="500dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginTop="350dp"
                     android:background="@drawable/top_corner_bg"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -71,18 +73,20 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="vertical">
+                        android:orientation="vertical"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
 
                         <TextView
-                            android:id="@+id/textView9"
+                            android:id="@+id/titleTxt"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:layout_margin="24dp"
                             android:text="title"
                             android:textAlignment="center"
-                            android:textSize="24sp"
                             android:textColor="@color/darkBlue"
-                            android:textStyle="bold"
-                            android:layout_margin="24dp"/>
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -98,14 +102,14 @@
                                 app:srcCompat="@drawable/location" />
 
                             <TextView
-                                android:id="@+id/textView10"
+                                android:id="@+id/addressTxt"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_weight="1"
-                                android:textSize="16sp"
-                                android:textColor="@color/darkBlue"
                                 android:layout_marginStart="8dp"
-                                android:text="address" />
+                                android:layout_weight="1"
+                                android:text="address"
+                                android:textColor="@color/darkBlue"
+                                android:textSize="16sp" />
                         </LinearLayout>
 
                         <LinearLayout
@@ -117,33 +121,34 @@
 
                             <RatingBar
                                 android:id="@+id/ratingBar"
+                                style="@android:style/Widget.DeviceDefault.RatingBar.Indicator"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:indeterminate="false"
                                 android:isIndicator="true"
                                 android:numStars="5"
+                                android:progressTint="#ffc106"
                                 android:rating="3"
                                 android:scaleX="0.7"
                                 android:scaleY="0.7"
                                 android:stepSize="0.1"
-                                android:transformPivotX="0dp"
-                                android:indeterminate="false"
-                                android:progressTint="#ffc106"
-                                style="@android:style/Widget.DeviceDefault.RatingBar.Indicator"/>
+                                android:transformPivotX="0dp" />
 
                             <TextView
-                                android:id="@+id/textView12"
+                                android:id="@+id/ratingTxt"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
                                 android:text="0"
-                                android:textSize="16sp"/>
+                                android:textSize="16sp" />
                         </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="80dp"
-                            android:background="@drawable/grey_bg_corner"
                             android:layout_marginStart="24dp"
                             android:layout_marginEnd="24dp"
+                            android:background="@drawable/grey_bg_corner"
                             android:orientation="horizontal">
 
                             <androidx.constraintlayout.widget.ConstraintLayout
@@ -160,6 +165,7 @@
                                     android:textColor="@color/darkBlue"
                                     android:textStyle="bold"
                                     app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.68"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -167,7 +173,7 @@
                                     android:id="@+id/imageView101"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginEnd="8dp"
+                                    android:layout_marginEnd="4dp"
                                     app:layout_constraintBottom_toBottomOf="@+id/durationTxt"
                                     app:layout_constraintEnd_toStartOf="@+id/durationTxt"
                                     app:layout_constraintTop_toTopOf="@+id/durationTxt"
@@ -177,7 +183,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_margin="8dp"
-                                    android:text="Duration"
+                                    android:text="Duración"
                                     android:textColor="@color/darkBlue"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
@@ -186,7 +192,7 @@
                             </androidx.constraintlayout.widget.ConstraintLayout>
 
                             <View
-                                android:id="@+id/view3"
+                                android:id="@+id/view2"
                                 android:layout_width="1dp"
                                 android:layout_height="wrap_content"
                                 android:layout_margin="8dp"
@@ -206,6 +212,7 @@
                                     android:textColor="@color/darkBlue"
                                     android:textStyle="bold"
                                     app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintHorizontal_bias="0.69"
                                     app:layout_constraintStart_toStartOf="parent"
                                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -213,7 +220,7 @@
                                     android:id="@+id/imageView102"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginEnd="8dp"
+                                    android:layout_marginEnd="4dp"
                                     app:layout_constraintBottom_toBottomOf="@+id/distanceTxt"
                                     app:layout_constraintEnd_toStartOf="@+id/distanceTxt"
                                     app:layout_constraintTop_toTopOf="@+id/distanceTxt"
@@ -223,7 +230,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_margin="8dp"
-                                    android:text="Distance"
+                                    android:text="Distancia"
                                     android:textColor="@color/darkBlue"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
@@ -270,7 +277,7 @@
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_margin="8dp"
-                                    android:text="Bed"
+                                    android:text="Cama"
                                     android:textColor="@color/darkBlue"
                                     app:layout_constraintEnd_toEndOf="parent"
                                     app:layout_constraintStart_toStartOf="parent"
@@ -278,10 +285,80 @@
 
                             </androidx.constraintlayout.widget.ConstraintLayout>
                         </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/textView14"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="24dp"
+                            android:layout_marginTop="16dp"
+                            android:text="Descripción"
+                            android:textColor="@color/darkBlue"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/descriptionTxt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="24dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="24dp"
+                            android:text="Playa Paraíso, en la costa del Caribe, es un destino perfecto con arenas blancas y aguas cristalinas. Rodeada de palmeras, es ideal para relajarse y disfrutar del sol. Sus aguas tranquilas son perfectas para nadar y hacer snorkel, explorando coloridos corales y peces. La playa cuenta con chiringuitos de mariscos frescos, bares de cócteles tropicales y opciones para deportes acuáticos. También ofrece comodidades como duchas, baños y alquiler de sombrillas y tumbonas."
+                            android:textColor="@color/darkBlue"
+                            android:textSize="16sp" />
+
                     </LinearLayout>
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:background="@color/lightGray"
+        app:layout_constraintBottom_toBottomOf="@+id/scrollView3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/addToCartBtn"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:text="Añadir al carrito"
+            style="@android:style/Widget.Button"
+            android:background="@drawable/blue_bg"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/priceTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:text="$000"
+            android:textColor="@color/blue"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" /Person"
+            android:textColor="@color/darkBlue"
+            app:layout_constraintBottom_toBottomOf="@+id/priceTxt"
+            app:layout_constraintStart_toEndOf="@+id/priceTxt"
+            app:layout_constraintTop_toTopOf="@+id/priceTxt" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

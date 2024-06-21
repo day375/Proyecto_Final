@@ -1,6 +1,7 @@
 package com.example.proyecto_final.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.proyecto_final.Activity.DetailActivity;
 import com.example.proyecto_final.Domain.ItemDomian;
 import com.example.proyecto_final.databinding.ViewholderRecommendedBinding;
 
@@ -34,7 +36,7 @@ public class RecommendedAdapter extends RecyclerView.Adapter<RecommendedAdapter.
     @Override
     public void onBindViewHolder(@NonNull RecommendedAdapter.Viewholder holder, int position) {
         binding.titleTxt.setText(items.get(position).getTitle());
-        binding.priceTxt.setText("$"+items.get(position).getPrice());
+        binding.priceTxt.setText("S/."+items.get(position).getPrice());
         binding.addressTxt.setText(items.get(position).getAddress());
         binding.scoreTxt.setText(""+items.get(position).getScore());
 
@@ -44,7 +46,9 @@ public class RecommendedAdapter extends RecyclerView.Adapter<RecommendedAdapter.
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent= new Intent(context, DetailActivity.class);
+                intent.putExtra("object",items.get(position));
+                context.startActivity(intent);
             }
         });
 
