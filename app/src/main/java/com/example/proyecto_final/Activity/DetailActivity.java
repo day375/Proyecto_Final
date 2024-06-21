@@ -43,11 +43,11 @@ public class DetailActivity extends BaseActivity {
         Glide.with(DetailActivity.this)
                 .load(object.getPic())
                 .into(binding.pic);
-        binding.addToCartBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            //    Intent intent= new Intent(DetailActivity.this,)
-            }
+
+        binding.addToCartBtn.setOnClickListener(v -> {
+            Intent intent= new Intent(DetailActivity.this,TicketActivity.class);
+            intent.putExtra("object",object);
+            startActivity(intent);
         });
     }
 
