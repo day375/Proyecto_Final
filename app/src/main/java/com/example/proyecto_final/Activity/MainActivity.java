@@ -1,5 +1,6 @@
 package com.example.proyecto_final.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -24,24 +25,47 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
+import com.ismaeldivita.chipnavigation.ChipNavigationBar;
 
 import java.sql.DatabaseMetaData;
 import java.util.ArrayList;
 
 public class MainActivity extends BaseActivity {
+    ChipNavigationBar chipNavigationBar;
     ActivityMainBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding=ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
+        chipNavigationBar = findViewById(R.id.bottom_nav_bar);
         initLocation();
         initBanner();
         initCategory();
         initRecommended();
         initPopular();
-
+        bottomNavigation();
+    }
+    private void bottomNavigation() {
+        binding.ProfileBtn.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ProfileActivity.class)));
+        chipNavigationBar.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener()  {
+            @Override
+            public void onItemSelected(int id) {
+                if (id == R.id.explorer) {
+                    Intent intent = new Intent(MainActivity.this, IntroActivity.class);
+                    startActivity(intent);
+                } else if (id == R.id.favorites) {
+                    // Acción para el icono Favorites
+                } else if (id == R.id.cart) {
+                    // Acción para el icono Cart
+                } else if (id == R.id.profileBtn) {
+                    Intent profileIntent = new Intent(MainActivity.this, ProfileActivity.class);
+                    startActivity(profileIntent);
+                } else {
+                    throw new IllegalArgumentException("Unexpected id: " + id);
+                }
+            }
+        });
     }
 
     private void initPopular() {

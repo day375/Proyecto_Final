@@ -18,12 +18,12 @@
 <item
     android:id="@+id/cart"
     android:icon="@drawable/bottom_btn3"
-    android:title="Marcadpr"
+    android:title="Marcador"
     app:cnb_backgroundColor="@color/blue"
     app:cnb_iconColor="@color/white"
     />
 <item
-    android:id="@+id/profile"
+    android:id="@+id/profileBtn"
     android:icon="@drawable/bottom_btn4"
     android:title="Perfil"
     app:cnb_backgroundColor="@color/blue"
