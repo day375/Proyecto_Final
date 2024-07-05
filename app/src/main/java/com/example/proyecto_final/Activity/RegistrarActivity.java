@@ -38,7 +38,10 @@ public class RegistrarActivity extends BaseActivity {
                         .addOnCompleteListener(task -> {
                             if (task.isSuccessful()) {
                                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                                startActivity(new Intent(RegistrarActivity.this, AuthActivity.class));
+                                Intent intent = new Intent(RegistrarActivity.this, MainActivity.class);
+                                String userName = binding.NameTxt.getText().toString().trim();
+                                intent.putExtra("name", userName);
+                                startActivity(intent);
                             } else {
                                 showAlertDialog("Error de Autenticación", "Se ha producido un error en la autenticación del usuario.");
                             }

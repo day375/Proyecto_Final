@@ -35,12 +35,14 @@
                     app:srcCompat="@drawable/profile" />
 
                 <TextView
-                    android:id="@+id/textView20"
+                    android:id="@+id/UserTxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
+                    android:layout_marginEnd="54dp"
                     android:text="Angie V."
                     android:textStyle="bold"
+                    app:layout_constraintEnd_toStartOf="@+id/locationSp"
                     app:layout_constraintStart_toStartOf="@+id/textView16"
                     app:layout_constraintTop_toBottomOf="@+id/textView16" />
 

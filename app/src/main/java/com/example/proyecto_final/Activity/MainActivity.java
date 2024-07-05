@@ -38,6 +38,15 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         binding=ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        Intent intent = getIntent();
+        if (intent != null && intent.hasExtra("name")) {
+            String userName = intent.getStringExtra("name");
+
+            // Establecer el texto en UserTxt si userName no es null ni vacío
+            if (userName != null && !userName.isEmpty()) {
+                binding.UserTxt.setText(userName);
+            }
+        }
         chipNavigationBar = findViewById(R.id.bottom_nav_bar);
         initLocation();
         initBanner();
