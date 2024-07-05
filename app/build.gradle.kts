@@ -42,6 +42,7 @@ dependencies {
     implementation(libs.viewpager2)
     implementation(libs.glide)
     implementation(libs.firebase.database)
+    implementation(libs.firebase.auth)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
