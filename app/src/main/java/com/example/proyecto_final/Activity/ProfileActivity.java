@@ -33,5 +33,13 @@ public class ProfileActivity extends BaseActivity {
             Intent intent=new Intent(Intent.ACTION_VIEW, Uri.parse(facebookURL));
             startActivity(intent);
         });
+        Intent intent = getIntent();
+        if (intent != null && intent.hasExtra("name")) {
+            String userName = intent.getStringExtra("name");
+            if (userName != null && !userName.isEmpty()) {
+                binding.Nameprotxt.setText(userName);
+            }
+        }
+        binding.Cerrarbtn.setOnClickListener(v -> startActivity(new Intent(ProfileActivity.this,IntroActivity.class)));
     }
 }

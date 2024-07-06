@@ -41,8 +41,6 @@ public class MainActivity extends BaseActivity {
         Intent intent = getIntent();
         if (intent != null && intent.hasExtra("name")) {
             String userName = intent.getStringExtra("name");
-
-            // Establecer el texto en UserTxt si userName no es null ni vacío
             if (userName != null && !userName.isEmpty()) {
                 binding.UserTxt.setText(userName);
             }
@@ -56,7 +54,12 @@ public class MainActivity extends BaseActivity {
         bottomNavigation();
     }
     private void bottomNavigation() {
-        binding.ProfileBtn.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, ProfileActivity.class)));
+        binding.ProfileBtn.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+            String userx = binding.UserTxt.getText().toString().trim();
+            intent.putExtra("name", userx);
+            startActivity(intent);
+        });
         chipNavigationBar.setOnItemSelectedListener(new ChipNavigationBar.OnItemSelectedListener()  {
             @Override
             public void onItemSelected(int id) {
@@ -68,8 +71,10 @@ public class MainActivity extends BaseActivity {
                 } else if (id == R.id.cart) {
                     // Acción para el icono Cart
                 } else if (id == R.id.profileBtn) {
-                    Intent profileIntent = new Intent(MainActivity.this, ProfileActivity.class);
-                    startActivity(profileIntent);
+                    Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                    String userx = binding.UserTxt.getText().toString().trim();
+                    intent.putExtra("name", userx);
+                    startActivity(intent);
                 } else {
                     throw new IllegalArgumentException("Unexpected id: " + id);
                 }
